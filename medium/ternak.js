@@ -48,3 +48,4 @@ console.log(getCagesAnimals(generateBoard('CCCCHHHHPPPPSSSS')))
   [ 'Sheep' ]
 ]
 */
+

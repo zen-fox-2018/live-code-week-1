@@ -1,10 +1,41 @@
-function generateBoard(str) {
-  //your code here
-}
+var kamus = [{icon :'C', name:'Cow' },{icon:'H', name: 'Horse'}]
+var hewan = ['Cow', 'Horse', 'Pig','Sheep']
 
-function getCagesAnimals(animals) {
-  //your code here
+function generateBoard(animals) {
+  var result = []
+  for(let i = 0; i < animals.length; i++){
+    //let holder = []
+    let  count = 0
+    for(let j = 0; j < kamus.length; j++){
+      
+      if (animals[i] == kamus[j].icon ){
+        result.push(kamus[j].name)
+        
+      }
+    }
+  }
+console.log(result)
+  let finalResult = []
+  for( let k = 0 ; k < result.length; k++){
+    var cek = false
+    for(let l = 0; l < finalResult.length; l++){
+      console.log(result[k])
+      if(result[k] ==  finalResult[l]){
+        cek = true
+       // finalResult.push(result[k])
+      }
+    }
+    if(!cek){
+      finalResult.push(result[k])
+    }
+  }
+  return finalResult
 }
+//console.log(generateBoard('CC'))
+function getCagesAnimals(animals) {
+   return animals
+}
+//console.log(getCagesAnimals())
 
 // DRIVER CODE
 

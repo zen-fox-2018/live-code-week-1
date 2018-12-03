@@ -19,7 +19,6 @@ function polynominal(str) {
       }
       if (!isAngka) {
         arrHuruf.push(str[i][j]);
-        //   console.log(arrHuruf);
       }
     }
     arrAngka = arrAngka.join('');
@@ -35,11 +34,15 @@ function polynominal(str) {
   for (let i = 0; i < arr2.length; i++) {
     var isSame = false;
     for (let j = i+1; j <= arr2.length; j++) {
-      // console.log(arr2[i], arr2[j]);
       if (arr2[i] === arr2[j] && i !== j) {
-        calculate += Number(arr1[i]) + Number(arr1[j]);
+        if (calculate === 0) {
+          calculate += Number(arr1[i]);
+        } else {
+          calculate += Number(arr1[j]);
+        }
+        console.log(arr2[i], arr1[i], '=========', arr2[j], arr1[j], calculate);
+        arr1.splice(j, 1);
         arr2.splice(j, 1);
-  
         isSame = true;
       }
     }
@@ -49,6 +52,7 @@ function polynominal(str) {
     if (calculate !== 0) {
       var combine = calculate.toString() + arr2[i];
       result.push(combine);
+      calculate = 0;
     } else if (calculate === 0) {
       result.push(arr2[i]);
     }
